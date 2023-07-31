@@ -36,7 +36,7 @@ node app.js
 
 <h3>Write to the Database</h3>
 
-Send a API Post with your Data along with the Database Name, if there's no database file created it will auto create it.
+Send a API Post with your data along with the Database Name, if there's no database file created it will auto create it.
 
 POST API ENDPOINT:   /sendtodb
 
@@ -48,16 +48,19 @@ dbname = "name of database file"  ( Will be auto created if it doesn't exist )
 
 ```
   const dburl = "http://localhost:5000";
+
   async function writedb() {
     let total = 100;
     let dbname = 'users'
     for (let i = 0; i < total; i++) {
       let number = i + 1;
+
       let entry = {
         name: 'User' + number,
         ip: '10.10.1.' + number,
         dept: 'developers'
       }
+
       const url = dburl + "/sendtodb";
       const config = {
         method: "POST",
@@ -75,5 +78,5 @@ dbname = "name of database file"  ( Will be auto created if it doesn't exist )
 ```
 EXPECTED: 
 
-<img src="https://raw.githubusercontent.com/net2devcrypto/misc/main/userdb.png" width="450" height="225">
+<img src="https://raw.githubusercontent.com/net2devcrypto/misc/main/userdb.png" width="550" height="325">
 
