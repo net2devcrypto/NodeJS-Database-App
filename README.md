@@ -46,7 +46,7 @@ Create a database of 100 users;
 
 With Javascript
 
-<img src="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" width="150" height="150">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="100" height="100">
 
 "dbname" is the database file name. ( Will be auto created if it doesn't exist )
 
@@ -83,7 +83,7 @@ With Javascript
 
 With Python:
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="150" height="150">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="100" height="100">
 
 ```python
 import requests
@@ -93,12 +93,12 @@ dburl = "http://localhost:5000"
 headers =  {'Content-Type': 'application/json'}
 
 def sendvmtodb():
-    total = 100;
+    total = 100
     dbname = 'users'
     try:
         
         for i in range(total):
-            number = i + 1;
+            number = i + 1
             entry = {
                 'name': 'User' + number,
                 'ip': '10.10.1.' + number,
@@ -136,7 +136,7 @@ Returns the "users" database
 
 With Javascript
 
-<img src="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" width="150" height="150">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="100" height="100">
 
 ```
   const dburl = "http://localhost:5000";
@@ -162,7 +162,7 @@ With Javascript
 
 With Python:
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="150" height="150">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="100" height="100">
 
 ```python
 import requests
@@ -201,7 +201,7 @@ Sample request:
 
 With Javascript
 
-<img src="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" width="150" height="150">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="100" height="100">
 
 ```
   const dburl = "http://localhost:5000";
