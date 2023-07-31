@@ -114,3 +114,39 @@ Returns the "users" database
 ```
 You should receive the entire database array as a return. 
 
+<h3>Get a single item from the database</h3>
+
+Send a API Post with the database name, the key and the value you are looking for.
+
+POST API ENDPOINT:   /fetchfromdb
+
+Sample request with FETCH In Next JS
+
+Returns the user's 30 info stored on the database.
+
+```
+  const dburl = "http://localhost:5000";
+
+  async function fetchdb() {
+    let dbname = 'users'
+    let key = 'name'
+    let value = 'User30'
+    const url = dburl + "/fetchfromdb";
+    const config = {
+      method: "POST",
+      body: JSON.stringify({
+        database: dbname,
+        key: key,
+        entry: value
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+    let response = await fetch(url, config);
+    let output = await response.json()
+    console.log(output)
+  }
+```
+You should receive the database info stored for user 30 as a return. 
+
