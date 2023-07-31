@@ -36,7 +36,7 @@ node app.js
 
 <h3>Write to the Database</h3>
 
-Send a API Post with your data along with the Database Name, if there's no database file created it will auto create it.
+Send a API Post with your data along with the database name, if there's no database file created it will auto create it.
 
 POST API ENDPOINT:   /sendtodb
 
@@ -79,4 +79,39 @@ dbname = "name of database file"  ( Will be auto created if it doesn't exist )
 EXPECTED: 
 
 <img src="https://raw.githubusercontent.com/net2devcrypto/misc/main/userdb.png" width="550" height="325">
+
+<h3>Read from the Database</h3>
+
+Send a API Post with your data along with the database name, if there's no database file created it will auto create it.
+
+POST API ENDPOINT:   /sendtodb
+
+Sample request with FETCH In Next JS
+
+Create a database of 100 users;
+
+dbname = "name of database file"  ( Will be auto created if it doesn't exist )
+
+```
+  const dburl = "http://localhost:5000";
+
+  async function readdb() {
+    let dbname = 'users'
+    const url = dburl + "/readdb";
+    const config = {
+      method: "POST",
+      body: JSON.stringify({
+        database: dbname
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+    let response = await fetch(url, config);
+    let output = await response.json()
+    console.log(output)
+    return output;
+  }
+```
+You should receive the entire database array as a return. 
 
