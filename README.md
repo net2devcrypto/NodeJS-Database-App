@@ -38,13 +38,17 @@ node app.js
 
 Send a API Post with your data along with the database name, if there's no database file created it will auto create it.
 
-POST API ENDPOINT:   /sendtodb
+POST API ENDPOINT:   <h4>/sendtodb</h4>
 
-Sample request with FETCH In Next JS
+Sample request:
 
 Create a database of 100 users;
 
-dbname = "name of database file"  ( Will be auto created if it doesn't exist )
+With Javascript
+
+<img src="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" width="150" height="150">
+
+"dbname" is the database file name. ( Will be auto created if it doesn't exist )
 
 ```
   const dburl = "http://localhost:5000";
@@ -76,20 +80,63 @@ dbname = "name of database file"  ( Will be auto created if it doesn't exist )
     }
   }
 ```
+
+With Python:
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="150" height="150">
+
+```python
+import requests
+import json
+
+dburl = "http://localhost:5000"
+headers =  {'Content-Type': 'application/json'}
+
+def sendvmtodb():
+    total = 100;
+    dbname = 'users'
+    try:
+        
+        for i in range(total):
+            number = i + 1;
+            entry = {
+                'name': 'User' + number,
+                'ip': '10.10.1.' + number,
+                'dept': 'developers'
+            }
+            
+            body = {
+                'database': dbname,
+                'entry': entry
+            }
+            
+            url = dburl + "/sendtodb"
+            payload = json.dumps(body)
+            requests.request("POST", url, headers=headers, data=payload)
+       
+    except:
+        print('Failed to Store in DB')
+```
+
 EXPECTED: 
+
+Your Database file will be located in the same app folder:
 
 <img src="https://raw.githubusercontent.com/net2devcrypto/misc/main/userdb.png" width="550" height="325">
 
-
 <h3>Read from the Database</h3>
+
+POST API ENDPOINT:   <h4>/readdb</h4>
 
 Send a API Post with the database name.
 
-POST API ENDPOINT:   /readdb
-
-Sample request with FETCH In Next JS
+Sample request:
 
 Returns the "users" database
+
+With Javascript
+
+<img src="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" width="150" height="150">
 
 ```
   const dburl = "http://localhost:5000";
@@ -112,17 +159,49 @@ Returns the "users" database
     return output;
   }
 ```
+
+With Python:
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="150" height="150">
+
+```python
+import requests
+import json
+
+dburl = "http://localhost:5000"
+headers =  {'Content-Type': 'application/json'}
+
+def sendvmtodb():
+    dbname = 'users'
+    try:
+        body = {
+            'database': dbname
+        }
+            
+        url = dburl + "/readdb"
+        payload = json.dumps(body)
+        response = requests.request("POST", url, headers=headers, data=payload)
+        data = response.json()
+        print(data)
+        return data
+       
+    except:
+        print('Failed to Read DB')
+```
+
 You should receive the entire database array as a return. 
 
 <h3>Get a single item from the database</h3>
 
-Send a API Post with the database name, the key and the value you are looking for.
+Send a API Post with the database name, the key and the value you are looking for. Returns the User's 30 info stored on the database.
 
-POST API ENDPOINT:   /fetchfromdb
+POST API ENDPOINT:   <h4>/fetchfromdb</h4>
 
-Sample request with FETCH In Next JS
+Sample request:
 
-Returns the user's 30 info stored on the database.
+With Javascript
+
+<img src="https://commons.wikimedia.org/wiki/File:JavaScript-logo.png" width="150" height="150">
 
 ```
   const dburl = "http://localhost:5000";
@@ -146,7 +225,41 @@ Returns the user's 30 info stored on the database.
     let response = await fetch(url, config);
     let output = await response.json()
     console.log(output)
+    return output
   }
 ```
+
+With Python:
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" width="150" height="150">
+
+```python
+import requests
+import json
+
+dburl = "http://localhost:5000"
+headers =  {'Content-Type': 'application/json'}
+
+def sendvmtodb():
+    dbname = 'users'
+    key = 'name'
+    value = 'User30'
+    try:
+        body = {
+            'database': dbname,
+            key: value,
+        }
+        url = dburl + "/fetchfromdb"
+        payload = json.dumps(body)
+        response = requests.request("POST", url, headers=headers, data=payload)
+        data = response.json()
+        print(data)
+        return data
+       
+    except:
+        print('Failed to Read DB')
+```
+
+
 You should receive the database info stored for user 30 as a return. 
 
