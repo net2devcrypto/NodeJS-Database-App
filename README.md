@@ -80,17 +80,16 @@ EXPECTED:
 
 <img src="https://raw.githubusercontent.com/net2devcrypto/misc/main/userdb.png" width="550" height="325">
 
+
 <h3>Read from the Database</h3>
 
-Send a API Post with your data along with the database name, if there's no database file created it will auto create it.
+Send a API Post with the database name.
 
-POST API ENDPOINT:   /sendtodb
+POST API ENDPOINT:   /readdb
 
 Sample request with FETCH In Next JS
 
-Create a database of 100 users;
-
-dbname = "name of database file"  ( Will be auto created if it doesn't exist )
+Returns the "users" database
 
 ```
   const dburl = "http://localhost:5000";
