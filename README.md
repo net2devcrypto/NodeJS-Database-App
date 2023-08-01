@@ -6,7 +6,7 @@
 
 ** THE FILES ATTACHED TO THIS REPO ARE FOR EDUCATIONAL PURPOSES ONLY **
 
-<h2>How to Start Database</h2>
+<h2>How to Start Database Server</h2>
 
 ## Step 1
 
