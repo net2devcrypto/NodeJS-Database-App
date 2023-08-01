@@ -92,7 +92,7 @@ import json
 dburl = "http://localhost:5000"
 headers =  {'Content-Type': 'application/json'}
 
-def sendvmtodb():
+def writedb():
     total = 100
     dbname = 'users'
     try:
@@ -171,7 +171,7 @@ import json
 dburl = "http://localhost:5000"
 headers =  {'Content-Type': 'application/json'}
 
-def sendvmtodb():
+def readdb():
     dbname = 'users'
     try:
         body = {
@@ -240,7 +240,7 @@ import json
 dburl = "http://localhost:5000"
 headers =  {'Content-Type': 'application/json'}
 
-def sendvmtodb():
+def fetchdb():
     dbname = 'users'
     key = 'name'
     value = 'User30'
